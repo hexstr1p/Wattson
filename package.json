@@ -15,5 +15,13 @@
   "bugs": {
     "url": "https://github.com/panpanick/Wattson/issues"
   },
-  "homepage": "https://github.com/panpanick/Wattson#readme"
+  "homepage": "https://github.com/panpanick/Wattson#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "ejs": "^2.5.2",
+    "express": "^4.14.0",
+    "minimist": "^1.2.0",
+    "mongoose": "^4.6.3",
+    "vue": "^2.0.1"
+  }
 }
