@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://unpkg.com/tachyons@4.5.3/css/tachyons.min.css" />
+    <link rel="stylesheet" href="../public/assets/css/main.css">
+    <script src="../public/assets/js/lite-modal.min.js"></script>
+    <script src="http://cdn.jsdelivr.net/vue/1.0.28/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/vue.resource/1.0.3/vue-resource.min.js"></script>
+</head>
+
+<body class="mw8 center">
+    <header class=" bg-red white ph4 ttu tracked f2 pv4 b" @click="currentPage='home'">Dobby</header>
+    <div v-if="currentPage == 'home'">
+        <div class="lite-modal mw6 bg-gray mb4 pa3" id="demo">
+            <label class="mt3 db fw4 lh-copy f4 white" for="email-address">email</label>
+            <input class="pa2 input-reset ba b--silver  w-100 bg-mid-gray hover-bg-silver white" type="email" name="email-address" id="email-address">
+            <label class="mt3 db fw4 lh-copy f4 white" for="email-address">password</label>
+            <input class="pa2 input-reset ba b--silver  w-100 bg-mid-gray hover-bg-silver white" type="email" name="email-address" id="email-address">
+            <input class="mt3 b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 white" type="submit" value="log in">
+        </div>
+        <div class="row mt2">
+            <div class="four columns bg-gray white">
+                <div class="ph4 pv3 f3 hover-bg-moon-gray" onclick="liteModal.open('#demo')">login</div>
+                <div class="ph4 pv3 f3 hover-bg-moon-gray"><img src="../public/assets/img/money.png" class="h1" alt=""> payment</div>
+                <div class="ph4 pv3 f3 hover-bg-moon-gray">destinations</div>
+                <div class="ph4 pv3 f3 hover-bg-moon-gray">enable valet</div>
+                <div class="ph4 pv3 f3 hover-bg-moon-gray">available valets</div>
+                <div class="ph4 pv3 f3 hover-bg-moon-gray" @click="currentPage = 'dashboard'">dashboard</div>
+                <div class="ph4 pv3 f3 hover-bg-moon-gray">past trips</div>
+                <div class="ph4 pv3 f3 hover-bg-moon-gray">help</div>
+            </div>
+            <div class="eight columns bg-light-green h5 white">
+                <div class="f2 pa4">map</div>
+            </div>
+        </div>
+    </div>
+    <div v-if="currentPage == 'dashboard'">
+        <div class="w-100 mw8 pv2 mt1 center f2 tc bg-silver white">Dashboard</div>
+        <div class="row mt1">
+            <div class="six columns ba">
+                <div class=" ph4 pv3 f3 black">Current Speed: <strong>{{currentSpeed}} mph</strong></div>
+                <div class=" ph4 pv3 f3 black">in-vehicle temp: <strong>{{inCarTemp}} C</strong></div>
+                <div class=" ph4 pv3 f3 black">outer-vehicle temp: <strong>{{outCarTemp}} C</strong></div>
+                <div class=" ph4 pv3 f3 black">charge per mile: <strong>{{chargePerMile}} miles</strong></div>
+            </div>
+            <div class="six columns">
+                <div class="ph4 pv3 f3 bg-gray white hover-bg-moon-gray " @click="honk">honk</div>
+                <div class="ph4 pv3 f3 bg-gray white hover-bg-moon-gray" @click="flash">flash lights</div>
+                <div @click="cancelTrip" class="ph4 pv3 f3 bg-gray white hover-bg-moon-gray">cancel current trip</div>
+                <div class="ph4 pv3 f3 bg-dark-gray white">set temperature
+                    <input class="input-reset bg-gray ba b--dark-gray ml2 mw3" placeholder="50" type="text" name=""> C
+                </div>
+                <div class="ph4 pv3 f3 bg-dark-gray white">biohazard mode
+                    <input type="checkbox" class="ml2" name="">
+                </div>
+                <div class="ph4 pv3 f3 bg-dark-gray white">adjust panoramic roof
+                    <input class="ml2" type="range" name="">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="../public/assets/js/main.js"></script>
+
+</html>
