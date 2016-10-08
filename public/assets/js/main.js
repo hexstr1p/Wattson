@@ -1,3 +1,5 @@
+// var teslaController = require('./controllers/teslaContorller.js');
+
 new Vue({
     el: 'body',
     data: {
