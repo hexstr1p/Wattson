@@ -12,6 +12,7 @@ var makeCall = function(command) {
     console.log('Status:', response.statusCode);
     console.log('Headers:', JSON.stringify(response.headers));
     console.log('Response:', body);
+    return body;
   });
 };
 
