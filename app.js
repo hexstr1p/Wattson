@@ -153,6 +153,7 @@ app.get('/getTemp', function(req, res) {
 //     //console.log(getIP());
 // });
 
+
 var portl = args._[0] || 3000;
 app.listen(portl);
 console.log(args);
