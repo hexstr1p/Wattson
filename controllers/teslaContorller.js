@@ -1,5 +1,4 @@
 /*eslint space-before-function-paren: 0*/
-module.exports = function(app) {
 var request = require('request');
 
 var makeCall = function(command) {
@@ -12,6 +11,7 @@ var makeCall = function(command) {
     console.log('Status:', response.statusCode);
     console.log('Headers:', JSON.stringify(response.headers));
     console.log('Response:', body);
+    return body;
   });
 };
 
@@ -75,5 +75,4 @@ var getDriveAndLocation = function(vehicleID) {
       console.log('Headers:', JSON.stringify(response.headers));
       console.log('Response:', body);
   });
-};
 };
