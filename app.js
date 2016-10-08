@@ -6,7 +6,10 @@ var wattsonController = require('./controllers/wattsonController.js');
 var app = express();
 
 app.set('view engine', 'ejs');
-app.use(express.static('./public'));
+// app.use(express.static('./public'));
+
+app.use('/', express.static(__dirname + '/'));
+
 // fire controllers
 wattsonController(app);
 
