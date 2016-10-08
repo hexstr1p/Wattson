@@ -8,6 +8,8 @@ new Vue({
         chargePerMile: '270'
     },
     methods: {
+        honk: function(){},
+        flash: function(){},
         cancelTrip: function() {
             swal({
                 title: 'Are you sure?',
