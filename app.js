@@ -15,43 +15,46 @@ app.use('/', express.static('./'));
 // fire controllers
 wattsonController(app);
 app.post('/wakeCar', function(req, res) {
-    res.send(teslaController.wakeCar(1));
+  res.send(teslaController.wakeCar(1));
 });
 app.post('/setValet', function(req, res) {
-    res.send(teslaController.setValet(1, true, 1243));
+  res.send(teslaController.setValet(1, true, 1243));
 });
 app.post('/resetValetPin', function(req, res) {
-    res.send(teslaController.resetValetPin(1));
+  res.send(teslaController.resetValetPin(1));
 });
 app.post('/flashLights', function(req, res) {
-    res.send(teslaController.flashLights(1));
+  res.send(teslaController.flashLights(1));
 });
 app.post('/honkHorn', function(req, res) {
-    res.send(teslaController.honkHorn(1));
+  res.send(teslaController.honkHorn(1));
 });
 app.post('/unlockDoors', function(req, res) {
-    res.send(teslaController.unlockDoors(1));
+  res.send(teslaController.unlockDoors(1));
 });
 app.post('/lockDoors', function(req, res) {
-    res.send(teslaController.lockDoors(1));
+  res.send(teslaController.lockDoors(1));
 });
 app.post('/setTemp', function(req, res) {
-    res.send(teslaController.setTemp(1, req.body.temp));
+  res.send(teslaController.setTemp(1, req.body.temp));
 });
 app.post('/startHVAC', function(req, res) {
-    res.send(teslaController.startHVAC(1));
+  res.send(teslaController.startHVAC(1));
 });
 app.post('/endHVAC', function(req, res) {
-    res.send(teslaController.endHVAC(1));
+  res.send(teslaController.endHVAC(1));
 });
 app.post('/wakeCar', function(req, res) {
-    res.send(teslaController.wakeCar(1));
+  res.send(teslaController.wakeCar(1));
 });
 app.post('/adjustRoof', function(req, res) {
-    res.send(teslaController.adjustRoof(1, true, req.body.percent));
+  res.send(teslaController.adjustRoof(1, true, req.body.percent));
 });
 app.get('/getDriveAndLocation', function(req, res) {
-    res.send(teslaController.getDriveAndLocation(1));
+  res.send(teslaController.getDriveAndLocation(1));
+});
+app.get('/getTemp', function(req, res) {
+  res.send(teslaController.getTemp(1));
 });
 // app.get('/', function(req, res) {
 //     res.send("<h1>Hello</h1>");

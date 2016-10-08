@@ -1,10 +1,6 @@
-<<<<<<< HEAD
 // var teslaController = require('./controllers/teslaContorller.js');
 
-new Vue({
-=======
 var vm = new Vue({
->>>>>>> 8d1c2a881a0aa5f0d7497f595b6459526979d27a
     el: 'body',
     data: {
         currentPage: 'home',
@@ -93,18 +89,35 @@ var adjustRoof = function(vehicleID, state, percent) {
         '/command/sun_roof_control?state=' + state + '&percent=' + percent);
 };
 
+var getTemp = function(vehicleID) {
+  request({
+    method: 'GET',
+    url: 'https://owner-api.teslamotors.com/api/1/vehicles/' + vehicleID +
+    '/data_request/climate_state',
+    headers: {
+      'Authorization': 'Bearer {access_token}'
+    }
+  },
+  function(error, response, body) {
+    if (error) return;
+    console.log('Status:', response.statusCode);
+    console.log('Headers:', JSON.stringify(response.headers));
+    console.log('Response:', body);
+  });
+};
 var getDriveAndLocation = function(vehicleID) {
-    request({
-            method: 'GET',
-            url: 'https://owner-api.teslamotors.com/api/1/vehicles/' + vehicleID + '/data_request/drive_state',
-            headers: {
-                'Authorization': 'Bearer {access_token}'
-            }
-        },
-        function(error, response, body) {
-            if (error) return;
-            console.log('Status:', response.statusCode);
-            console.log('Headers:', JSON.stringify(response.headers));
-            console.log('Response:', body);
-        });
+  request({
+    method: 'GET',
+    url: 'https://owner-api.teslamotors.com/api/1/vehicles/' + vehicleID +
+    '/data_request/drive_state',
+    headers: {
+      'Authorization': 'Bearer {access_token}'
+    }
+  },
+  function(error, response, body) {
+    if (error) return;
+    console.log('Status:', response.statusCode);
+    console.log('Headers:', JSON.stringify(response.headers));
+    console.log('Response:', body);
+  });
 };
