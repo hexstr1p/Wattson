@@ -13,6 +13,10 @@ app.use('/', express.static(__dirname + '/'));
 // fire controllers
 wattsonController(app);
 
+app.get('/', function(req, res) {
+    res.send("<h1>Hello</h1>");
+    //console.log(getIP());
+});
 
 var portl = args._[0] || 3000;
 app.listen(portl);
