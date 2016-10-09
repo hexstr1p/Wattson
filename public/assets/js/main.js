@@ -81,16 +81,18 @@ var vm = new Vue({
                     'Successfully honked horn!',
                     'success'
                 )
-                console.log(data)
             })
 
         },
         flash: function() {
-             swal(
+            this.$http.post('/flash_lights').then(function(data) {
+                swal(
                     '( ͡° ͜ʖ ͡°)',
                     'Successfully flashed lights!',
                     'success'
-                )
+                )})
+
+             
         },
         cancelTrip: function() {
             swal({
@@ -167,8 +169,6 @@ var vm = new Vue({
             setTimeout(function() {
                 self.$http.get('/getTemp').then(function(data) {
                     obj = JSON.parse(JSON.minify(data.body)).response;
-                    console.log(obj)
-                        //self.inCarTemp = obj.inside_temp;
                     self.outCarTemp = obj.outside_temp;
                 })
                 self.startInCarTemp()
