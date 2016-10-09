@@ -8,8 +8,8 @@ var vm = new Vue({
         chargePerMile: '270'
     },
     ready: function() {
-        //this.startCurrentSpeed();
-        this.startInCarTemp();
+        this.startCurrentSpeed();
+        //this.startInCarTemp();
     },
     methods: {
         honk: function() {
@@ -39,7 +39,10 @@ var vm = new Vue({
             var self = this;
             setTimeout(function() {
                 self.$http.get('/getDriveAndLocation').then(function(data) {
-                    console.log(data.body)
+                    data = JSON.stringify(data)
+                    data = data.replace(/(\\\/\\*[\\w\\\'\\s\\r\\n\\*]*\\*\\\/)|(\\\/\\\/[\\w\\s\\\']*)|(\\<![\\-\\-\\s\\w\\>\\\/]*\\>)/," ")
+                    console.log(data)
+
                 })
                 self.startCurrentSpeed()
             }, 3000)
@@ -48,7 +51,7 @@ var vm = new Vue({
             var self = this;
             setTimeout(function() {
                 self.$http.get('/getTemp').then(function(data) {
-                    console.log(JSON.parse(stripJsonComments(data.body)))
+                    console.log(data.body)
                 })
             })
         }
