@@ -88,7 +88,7 @@ var getTemp = function(vehicleID) {
     console.log('Status:', response.statusCode);
     console.log('Headers:', JSON.stringify(response.headers));
     console.log('Response:', body);
-    thing = body;
+    thing1 = body;
   });
   return thing1;
 };
@@ -105,7 +105,7 @@ var getDriveAndLocation = function(vehicleID) {
     console.log('Status:', response.statusCode);
     console.log('Headers:', JSON.stringify(response.headers));
     console.log('Response:', body);
-    thing = body;
+    thing2 = body;
   });
   return thing2;
 };
