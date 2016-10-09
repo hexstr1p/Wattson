@@ -64,7 +64,8 @@ var vm = new Vue({
         currentSpeed: '50',
         inCarTemp: '10',
         outCarTemp: '9',
-        chargePerMile: '270'
+        chargePerMile: '270',
+        text: 'log in'
     },
     ready: function() {
         this.startCurrentSpeed();
@@ -94,6 +95,31 @@ var vm = new Vue({
                 );
             })
         },
+        login: function() {
+            if (this.text == 'log in') {
+                this.text = 'log out';
+                liteModal.close('#demo')
+                swal(
+                    'IT WORKED',
+                    'Successfully logged in!',
+                    'success'
+                )
+            }
+        },
+        logout: function() {
+            if (this.text == 'log in') {
+                liteModal.open('#demo')
+                return;
+            } else {
+                swal(
+                    'Goodbye!',
+                    'Successfully logged out!',
+                    'success'
+                )
+                this.text = 'log in'
+            }
+        },
+
         startCurrentSpeed: function() {
             var self = this;
             setTimeout(function() {
