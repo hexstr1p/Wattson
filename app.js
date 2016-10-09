@@ -76,6 +76,7 @@ var adjustRoof = function(vehicleID, state, percent) {
 };
 
 var getTemp = function(vehicleID) {
+  var thing;
   request({
     method: 'GET',
     url: protoURL + vehicleID + '/data_request/climate_state',
@@ -88,9 +89,12 @@ var getTemp = function(vehicleID) {
     console.log('Status:', response.statusCode);
     console.log('Headers:', JSON.stringify(response.headers));
     console.log('Response:', body);
+    thing = body;
   });
+  return thing;
 };
 var getDriveAndLocation = function(vehicleID) {
+  var thing;
   request({
     method: 'GET',
     url: protoURL + vehicleID + '/data_request/drive_state',
@@ -103,8 +107,9 @@ var getDriveAndLocation = function(vehicleID) {
     console.log('Status:', response.statusCode);
     console.log('Headers:', JSON.stringify(response.headers));
     console.log('Response:', body);
+    thing = body;
   });
->>>>>>> origin/master
+  return thing;
 };
 // fire controllers
 wattsonController(app);
