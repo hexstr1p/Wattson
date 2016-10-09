@@ -44,7 +44,7 @@
         <div class="w-100 pv2 mt1 center f2 tc bg-silver white">Dashboard</div>
         <div class="row mt1">
             <div class="six columns ba">
-                <div class=" ph4 pv3 f3 black">Current Speed: <strong>{{currentSpeed}} mph</strong></div>
+                <div class=" ph4 pv3 f3 black">Current Speed: <strong>{{currentSpeed || 0}} mph</strong></div>
                 <div class=" ph4 pv3 f3 black">in-vehicle temp: <strong>{{inCarTemp}} C</strong></div>
                 <div class=" ph4 pv3 f3 black">outer-vehicle temp: <strong>{{outCarTemp}} C</strong></div>
                 <div class=" ph4 pv3 f3 black">charge per mile: <strong>{{chargePerMile}} miles</strong></div>

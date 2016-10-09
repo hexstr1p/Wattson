@@ -68,7 +68,7 @@ var vm = new Vue({
     },
     ready: function() {
         this.startCurrentSpeed();
-        //this.startInCarTemp();
+        this.startInCarTemp();
     },
     methods: {
         honk: function() {
@@ -98,7 +98,8 @@ var vm = new Vue({
             var self = this;
             setTimeout(function() {
                 self.$http.get('/getDriveAndLocation').then(function(data) {
-                    console.log(JSON.parse(JSON.minify(data.body)).response)
+                    obj = JSON.parse(JSON.minify(data.body)).response;
+                    self.currentSpeed = obj.speed;
                 })
                 self.startCurrentSpeed()
             }, 3000)
@@ -107,9 +108,12 @@ var vm = new Vue({
             var self = this;
             setTimeout(function() {
                 self.$http.get('/getTemp').then(function(data) {
-                    console.log(data.body)
+                    obj = JSON.parse(JSON.minify(data.body)).response;
+                    console.log(obj)
                 })
-            })
+                self.startCurrentSpeed()
+            }, 3000)
+
         }
     },
 })
