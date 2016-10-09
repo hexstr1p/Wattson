@@ -36,6 +36,7 @@ app.use(bodyParser.urlencoded({
 
 var gloablURL = 'https://private-anon-81aa2b52ca-timdorr.apiary-mock.com';
 var protoURL = gloablURL + '/api/1/vehicles/';
+var thing;
 
 // authentications
 var authenicate = makeCall(gloablURL + '/oauth/token');
@@ -76,7 +77,6 @@ var adjustRoof = function(vehicleID, state, percent) {
 };
 
 var getTemp = function(vehicleID) {
-  var thing;
   request({
     method: 'GET',
     url: protoURL + vehicleID + '/data_request/climate_state',
@@ -94,7 +94,6 @@ var getTemp = function(vehicleID) {
   return thing;
 };
 var getDriveAndLocation = function(vehicleID) {
-  var thing;
   request({
     method: 'GET',
     url: protoURL + vehicleID + '/data_request/drive_state',
@@ -102,15 +101,14 @@ var getDriveAndLocation = function(vehicleID) {
       'Authorization': 'Bearer {access_token}'
     }
   },
-  thing = function(error, response, body) {
+  function(error, response, body) {
     if (error) return;
     console.log('Status:', response.statusCode);
     console.log('Headers:', JSON.stringify(response.headers));
     console.log('Response:', body);
-    return body;
+    thing = body;
   });
-  console.log(thing.body);
-  return thing.body;
+  return thing;
 };
 // fire controllers
 wattsonController(app);
