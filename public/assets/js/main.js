@@ -107,7 +107,7 @@ var vm = new Vue({
 
         },
         flash: function() {
-            this.$http.post('/flash_lights').then(function(data) {
+            this.$http.post('/flashLights').then(function(data) {
                 swal(
                     '( ͡° ͜ʖ ͡°)',
                     'Successfully flashed lights!',
