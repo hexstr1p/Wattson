@@ -65,7 +65,9 @@ var vm = new Vue({
         inCarTemp: '10',
         outCarTemp: '9',
         chargePerMile: '270',
-        text: 'log in'
+        text: 'log in',
+        percentOfRoof: 50,
+        biohazardOn: false,
     },
     ready: function() {
         this.startCurrentSpeed();
@@ -74,8 +76,14 @@ var vm = new Vue({
     methods: {
         honk: function() {
             this.$http.post('/wakeCar').then(function(data) {
+                swal(
+                    'HONK!',
+                    'Successfully honked horn!',
+                    'success'
+                )
                 console.log(data)
             })
+
         },
         flash: function() {},
         cancelTrip: function() {
@@ -94,6 +102,31 @@ var vm = new Vue({
                     'success'
                 );
             })
+        },
+        biohazard: function() {
+
+            if (this.biohazardOn) {
+                this.$http.post('/endHVAC').then(function(data) {
+                    obj = JSON.parse(JSON.minify(data.body)).response;
+                    console.log(obj)
+                })
+                swal(
+                    'SAFE!',
+                    'Successfully turned off biohazard mode!',
+                    'success'
+                )
+
+            } else {
+                this.$http.post('/startHVAC').then(function(data) {
+                    obj = JSON.parse(JSON.minify(data.body)).response;
+                    console.log(obj)
+                })
+                swal(
+                    'Preparing for Florida!',
+                    'Successfully turned on biohazard mode!',
+                    'success'
+                )
+            }
         },
         login: function() {
             if (this.text == 'log in') {
@@ -136,7 +169,7 @@ var vm = new Vue({
                 self.$http.get('/getTemp').then(function(data) {
                     obj = JSON.parse(JSON.minify(data.body)).response;
                     console.log(obj)
-                    self.inCarTemp = obj.inside_temp;
+                        //self.inCarTemp = obj.inside_temp;
                     self.outCarTemp = obj.outside_temp;
                 })
                 self.startInCarTemp()

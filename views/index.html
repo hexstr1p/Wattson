@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Chocola</title>
+    <title>Conservus</title>
     <link rel="stylesheet" href="https://unpkg.com/tachyons@4.5.3/css/tachyons.min.css" />
     <link rel="stylesheet" href="../public/assets/css/main.css">
     <link rel="stylesheet" href="../public/assets/css/sweetalert2.min.css">
@@ -15,7 +15,7 @@
 </head>
 
 <body class="mw10 center" id="particles-js">
-    <header class=" bg-red white ph4 ttu tracked f2 pv4 b" @click="currentPage='home'">Chocola</header>
+    <header class=" bg-red white ph4 ttu tracked f2 pv4 b" @click="currentPage='home'">Conservus</header>
     <div v-if="currentPage == 'home'">
         <div class="lite-modal mw6 bg-gray mb4 pa3" id="demo">
             <label class="mt3 db fw4 lh-copy f4 white" for="email-address">email</label>
@@ -54,13 +54,13 @@
                 <div class="ph4 pv3 f3 bg-gray white hover-bg-moon-gray" @click="flash">flash lights</div>
                 <div @click="cancelTrip" class="ph4 pv3 f3 bg-gray white hover-bg-moon-gray">cancel current trip</div>
                 <div class="ph4 pv3 f3 bg-dark-gray white">set temperature
-                    <input class="input-reset bg-gray ba b--dark-gray ml2 mw3" placeholder="50" type="text" name=""> C
+                    <input class=" ml2 mw5" max="35" min="10" type="range" name="" v-model="inCarTemp"> C
                 </div>
                 <div class="ph4 pv3 f3 bg-dark-gray white">biohazard mode
-                    <input type="checkbox" class="ml2" name="">
+                    <input type="checkbox" class="ml2" name="" @click="biohazard" v-model="biohazardOn">
                 </div>
                 <div class="ph4 pv3 f3 bg-dark-gray white">adjust panoramic roof
-                    <input class="ml2" type="range" name="">
+                    <input class="ml2" type="range" v-model="percentOfRoof"> {{percentOfRoof}}%
                 </div>
             </div>
         </div>
