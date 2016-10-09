@@ -22,11 +22,11 @@
             <input class="pa2 input-reset ba b--silver  w-100 bg-mid-gray hover-bg-silver white" type="email" name="email-address" id="email-address">
             <label class="mt3 db fw4 lh-copy f4 white" for="email-address">password</label>
             <input class="pa2 input-reset ba b--silver  w-100 bg-mid-gray hover-bg-silver white" type="email" name="email-address" id="email-address">
-            <input class="mt3 b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 white" type="submit" value="log in">
+            <input class="mt3 b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 white" type="submit" value="log in" @click="login">
         </div>
         <div class="row mt2">
             <div class="three columns bg-gray white">
-                <div class="ph4 pv3 f3 hover-bg-moon-gray" onclick="liteModal.open('#demo')">login</div>
+                <div class="ph4 pv3 f3 hover-bg-moon-gray" @click="logout">{{text}}</div>
                 <div class="ph4 pv3 f3 hover-bg-moon-gray"><img src="../public/assets/img/money.png" class="h1" alt=""> payment</div>
                 <div class="ph4 pv3 f3 hover-bg-moon-gray"><img src="../public/assets/img/location.png" class="h1" alt=""> destinations</div>
                 <div class="ph4 pv3 f3 hover-bg-moon-gray"><img src="../public/assets/img/person.png" class="h1" alt=""> enable valet</div>
