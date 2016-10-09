@@ -9,8 +9,9 @@ var app = express();
 app.use('/', express.static('./'));
 var request = require('request');
 
+var hype;
+
 var makeCall = function(command) {
-  var temp;
   request({
     method: 'POST',
     url: command
@@ -20,9 +21,9 @@ var makeCall = function(command) {
     console.log('Status:', response.statusCode);
     console.log('Headers:', JSON.stringify(response.headers));
     console.log('Response:', body);
-    temp = body;
+    hype = body;
   });
-  return temp;
+  return hype;
 };
 
 app.use(bodyParser.json()); // support json encoded bodies
