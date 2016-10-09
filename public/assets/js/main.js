@@ -7,8 +7,9 @@ var vm = new Vue({
         outCarTemp: '9',
         chargePerMile: '270'
     },
-    ready: function(){
-        this.startCurrentSpeed();
+    ready: function() {
+        //this.startCurrentSpeed();
+        this.startInCarTemp();
     },
     methods: {
         honk: function() {
@@ -34,14 +35,22 @@ var vm = new Vue({
                 );
             })
         },
-        startCurrentSpeed: function(){
+        startCurrentSpeed: function() {
             var self = this;
-            setTimeout(function(){
+            setTimeout(function() {
                 self.$http.get('/getDriveAndLocation').then(function(data) {
-                console.log(data)
-            })
+                    console.log(data.body)
+                })
                 self.startCurrentSpeed()
             }, 3000)
         },
+        startInCarTemp: function() {
+            var self = this;
+            setTimeout(function() {
+                self.$http.get('/getTemp').then(function(data) {
+                    console.log(JSON.parse(stripJsonComments(data.body)))
+                })
+            })
+        }
     },
 })

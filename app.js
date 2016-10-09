@@ -13,6 +13,7 @@ app.use('/', express.static('./'));
 var request = require('request');
 
 var makeCall = function(command) {
+    var temp;
     request({
             method: 'POST',
             url: command
@@ -22,8 +23,9 @@ var makeCall = function(command) {
             console.log('Status:', response.statusCode);
             console.log('Headers:', JSON.stringify(response.headers));
             console.log('Response:', body);
-            return body;
-        });
+            temp = body;
+        })
+    return temp;
 };
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({
@@ -71,6 +73,7 @@ var adjustRoof = function(vehicleID, state, percent) {
 };
 
 var getTemp = function(vehicleID) {
+  var temp;
     request({
             method: 'GET',
             url: protoURL + vehicleID + '/data_request/climate_state',
@@ -83,7 +86,9 @@ var getTemp = function(vehicleID) {
             console.log('Status:', response.statusCode);
             console.log('Headers:', JSON.stringify(response.headers));
             console.log('Response:', body);
+            temp = body;
         });
+    return temp;
 };
 var getDriveAndLocation = function(vehicleID) {
     request({
@@ -98,7 +103,9 @@ var getDriveAndLocation = function(vehicleID) {
             console.log('Status:', response.statusCode);
             console.log('Headers:', JSON.stringify(response.headers));
             console.log('Response:', body);
+            temp = body;
         });
+    return temp;
 };
 // fire controllers
 wattsonController(app);
@@ -140,7 +147,7 @@ app.post('/adjustRoof', function(req, res) {
     res.send(adjustRoof(1, true, req.body.percent));
 });
 app.get('/getDriveAndLocation', function(req, res) {
-    res.send(getDriveAndLocation(1));
+    res.json(getDriveAndLocation(1));
 });
 app.get('/getTemp', function(req, res) {
     res.send(getTemp(1));
