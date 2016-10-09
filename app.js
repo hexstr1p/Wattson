@@ -32,7 +32,8 @@ app.use(bodyParser.urlencoded({
 
 var gloablURL = 'https://private-anon-81aa2b52ca-timdorr.apiary-mock.com';
 var protoURL = gloablURL + '/api/1/vehicles/';
-var thing;
+var thing1;
+var thing2;
 
 // authentications
 var authenicate = makeCall(gloablURL + '/oauth/token');
@@ -88,7 +89,7 @@ var getTemp = function(vehicleID) {
     console.log('Response:', body);
     thing = body;
   });
-  return thing;
+  return thing1;
 };
 var getDriveAndLocation = function(vehicleID) {
   request({
@@ -105,7 +106,7 @@ var getDriveAndLocation = function(vehicleID) {
     console.log('Response:', body);
     thing = body;
   });
-  return thing;
+  return thing2;
 };
 // fire controllers
 wattsonController(app);
