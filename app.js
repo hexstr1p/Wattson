@@ -2,6 +2,7 @@ var express = require('express');
 var args = require('minimist')(process.argv.slice(2));
 var wattsonController = require('./controllers/wattsonController.js');
 var teslaController = require('./controllers/teslaContorller.js');
+var bodyParse = require('body-parser');
 
 var app = express();
 
