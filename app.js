@@ -52,7 +52,7 @@ var flashLights = function(vehicleID) {
   makeCall(protoURL + vehicleID + '/command/flash_lights');
 };
 var honkHorn = function(vehicleID) {
-  makeCall(protoURL + vehicleID + '/command/flash_lights');
+  makeCall(protoURL + vehicleID + '/command/honk_horn');
 };
 var unlockDoors = function(vehicleID) {
   makeCall(protoURL + vehicleID + '/command/door_unlock');
