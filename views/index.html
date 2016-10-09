@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../public/assets/css/main.css">
     <link rel="stylesheet" href="../public/assets/css/sweetalert2.min.css">
     <script src="../public/assets/js/lite-modal.min.js"></script>
-    <script src="../public/assets/js/request.js"></script>
+    <script src="../public/assets/js/sweetalert2.min.js"></script>
     <script src="http://cdn.jsdelivr.net/vue/1.0.28/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/vue.resource/1.0.3/vue-resource.min.js"></script>
     <script></script>
@@ -28,12 +28,12 @@
             <div class="three columns bg-gray white">
                 <div class="ph4 pv3 f3 hover-bg-moon-gray" onclick="liteModal.open('#demo')">login</div>
                 <div class="ph4 pv3 f3 hover-bg-moon-gray"><img src="../public/assets/img/money.png" class="h1" alt=""> payment</div>
-                <div class="ph4 pv3 f3 hover-bg-moon-gray">destinations</div>
-                <div class="ph4 pv3 f3 hover-bg-moon-gray">enable valet</div>
-                <div class="ph4 pv3 f3 hover-bg-moon-gray">available valets</div>
-                <div class="ph4 pv3 f3 hover-bg-moon-gray" @click="currentPage = 'dashboard'">dashboard</div>
-                <div class="ph4 pv3 f3 hover-bg-moon-gray">past trips</div>
-                <div class="ph4 pv3 f3 hover-bg-moon-gray">help</div>
+                <div class="ph4 pv3 f3 hover-bg-moon-gray"><img src="../public/assets/img/location.png" class="h1" alt=""> destinations</div>
+                <div class="ph4 pv3 f3 hover-bg-moon-gray"><img src="../public/assets/img/person.png" class="h1" alt=""> enable valet</div>
+                <div class="ph4 pv3 f3 hover-bg-moon-gray"><img src="../public/assets/img/search.png" class="h1" alt=""> available valets</div>
+                <div class="ph4 pv3 f3 hover-bg-moon-gray" @click="currentPage = 'dashboard'"><img src="../public/assets/img/money.png" class="h1" alt=""> dashboard</div>
+                <div class="ph4 pv3 f3 hover-bg-moon-gray"><img src="../public/assets/img/banner.png" class="h1" alt=""> past trips</div>
+                <div class="ph4 pv3 f3 hover-bg-moon-gray"><img src="../public/assets/img/money.png" class="h1" alt=""> help</div>
             </div>
             <div class="nine columns h5 white pr1">
                 <iframe src="http://ec2-52-23-227-133.compute-1.amazonaws.com/map.html" class="f2 w-100 h6"></iframe>

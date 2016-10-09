@@ -7,6 +7,9 @@ var vm = new Vue({
         outCarTemp: '9',
         chargePerMile: '270'
     },
+    ready: function(){
+        this.startCurrentSpeed();
+    },
     methods: {
         honk: function() {
             this.$http.post('/wakeCar').then(function(data) {
@@ -30,6 +33,15 @@ var vm = new Vue({
                     'success'
                 );
             })
+        },
+        startCurrentSpeed: function(){
+            var self = this;
+            setTimeout(function(){
+                self.$http.get('/getDriveAndLocation').then(function(data) {
+                console.log(data)
+            })
+                self.startCurrentSpeed()
+            }, 3000)
         },
     },
 })
