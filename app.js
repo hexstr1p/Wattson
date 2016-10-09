@@ -148,7 +148,6 @@ app.post('/adjustRoof', function(req, res) {
   res.send(adjustRoof(1, true, req.body.percent));
 });
 app.get('/getDriveAndLocation', function(req, res) {
-
   res.send(getDriveAndLocation(1));
 });
 app.get('/getTemp', function(req, res) {
