@@ -29,7 +29,7 @@
                 <div class="ph4 pv3 f3 hover-bg-moon-gray" @click="logout">{{text}}</div>
                 <div class="ph4 pv3 f3 hover-bg-moon-gray"><img src="../public/assets/img/money.png" class="h1" alt=""> payment</div>
                 <div class="ph4 pv3 f3 hover-bg-moon-gray"><img src="../public/assets/img/location.png" class="h1" alt=""> destinations</div>
-                <div class="ph4 pv3 f3 hover-bg-moon-gray"><img src="../public/assets/img/person.png" class="h1" alt=""> enable valet</div>
+                <div class="ph4 pv3 f3 hover-bg-moon-gray" @click="toggleValet"><img src="../public/assets/img/person.png" class="h1" alt=""> {{valetText}}</div>
                 <div class="ph4 pv3 f3 hover-bg-moon-gray"><img src="../public/assets/img/search.png" class="h1" alt=""> available valets</div>
                 <div class="ph4 pv3 f3 hover-bg-moon-gray" @click="currentPage = 'dashboard'"><img src="../public/assets/img/money.png" class="h1" alt=""> dashboard</div>
                 <div class="ph4 pv3 f3 hover-bg-moon-gray"><img src="../public/assets/img/banner.png" class="h1" alt=""> past trips</div>

@@ -68,14 +68,36 @@ var vm = new Vue({
         text: 'log in',
         percentOfRoof: 50,
         biohazardOn: false,
+        valetText: 'enable valet'
     },
     ready: function() {
         this.startCurrentSpeed();
         this.startInCarTemp();
     },
     methods: {
+        toggleValet: function() {
+            if (this.valetText != 'enable valet') {
+                this.$http.post('/honkHorn')
+                this.$http.post('/resetValetPin')
+                this.$http.post('/setValet')
+                this.valetText = 'enable valet'
+                swal(
+                    'Awww',
+                    'Valet disabled',
+                    'success'
+                )
+            } else {
+                this.$http.post('/setValet')
+                this.valetText = 'disable valet'
+                swal(
+                    'PARTY!',
+                    'Valet enabled',
+                    'success'
+                )
+            }
+        },
         honk: function() {
-            this.$http.post('/wakeCar').then(function(data) {
+            this.$http.post('/honkHorn').then(function(data) {
                 swal(
                     'HONK!',
                     'Successfully honked horn!',
@@ -90,9 +112,10 @@ var vm = new Vue({
                     '( ͡° ͜ʖ ͡°)',
                     'Successfully flashed lights!',
                     'success'
-                )})
+                )
+            })
 
-             
+
         },
         cancelTrip: function() {
             swal({
