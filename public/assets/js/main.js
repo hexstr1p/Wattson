@@ -106,10 +106,7 @@ var vm = new Vue({
         biohazard: function() {
 
             if (this.biohazardOn) {
-                this.$http.post('/endHVAC').then(function(data) {
-                    obj = JSON.parse(JSON.minify(data.body)).response;
-                    console.log(obj)
-                })
+                this.$http.post('/endHVAC').then(function(data) {})
                 swal(
                     'SAFE!',
                     'Successfully turned off biohazard mode!',
@@ -118,8 +115,6 @@ var vm = new Vue({
 
             } else {
                 this.$http.post('/startHVAC').then(function(data) {
-                    obj = JSON.parse(JSON.minify(data.body)).response;
-                    console.log(obj)
                 })
                 swal(
                     'Preparing for Florida!',

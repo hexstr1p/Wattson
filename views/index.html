@@ -54,7 +54,7 @@
                 <div class="ph4 pv3 f3 bg-gray white hover-bg-moon-gray" @click="flash">flash lights</div>
                 <div @click="cancelTrip" class="ph4 pv3 f3 bg-gray white hover-bg-moon-gray">cancel current trip</div>
                 <div class="ph4 pv3 f3 bg-dark-gray white">set temperature
-                    <input class=" ml2 mw5" max="35" min="10" type="range" name="" v-model="inCarTemp"> C
+                    <input class=" ml2 mw5" max="35" min="10" type="range" name="" v-model="inCarTemp"> {{inCarTemp}}C
                 </div>
                 <div class="ph4 pv3 f3 bg-dark-gray white">biohazard mode
                     <input type="checkbox" class="ml2" name="" @click="biohazard" v-model="biohazardOn">
