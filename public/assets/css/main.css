@@ -1,10 +1,20 @@
+.h6 {
+    height: 16em;
+}
+
+.mw10 {
+    max-width: 80em;
+}
+
 @font-face {
     font-family: "Akcrobat";
     src: url(../fonts/Akrobat-Regular.otf);
 }
-body{
+
+body {
     font-family: "Akcrobat";
 }
+
 .container {
     position: relative;
     width: 100%;
