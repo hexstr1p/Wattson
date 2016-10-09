@@ -2,33 +2,29 @@
 var express = require('express');
 var args = require('minimist')(process.argv.slice(2));
 var wattsonController = require('./controllers/wattsonController.js');
-var teslaController = require('./controllers/teslaContorller.js');
 var bodyParser = require('body-parser');
 
 var app = express();
-
-app.set('view engine', 'ejs');
-// app.use(express.static('./public'));
 
 app.use('/', express.static('./'));
 var request = require('request');
 
 var makeCall = function(command) {
-    var temp;
-    request({
-            method: 'POST',
-            url: command
-        },
-        function(error, response, body) {
-            if (error) return;
-            console.log('Status:', response.statusCode);
-            console.log('Headers:', JSON.stringify(response.headers));
-            console.log('Response:', body);
-            temp = body;
-        })
-    return temp;
-
+  var temp;
+  request({
+    method: 'POST',
+    url: command
+  },
+  function(error, response, body) {
+    if (error) return;
+    console.log('Status:', response.statusCode);
+    console.log('Headers:', JSON.stringify(response.headers));
+    console.log('Response:', body);
+    temp = body;
+  });
+  return temp;
 };
+
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({
   extended: true
@@ -40,6 +36,7 @@ var thing;
 
 // authentications
 var authenicate = makeCall(gloablURL + '/oauth/token');
+
 var wakeCar = function(vehicleID) {
   makeCall(protoURL + vehicleID + '/wake_up');
 };
@@ -112,7 +109,6 @@ var getDriveAndLocation = function(vehicleID) {
 };
 // fire controllers
 wattsonController(app);
-teslaController(app);
 app.post('/wakeCar', function(req, res) {
   res.send(wakeCar(1));
 });
