@@ -85,7 +85,13 @@ var vm = new Vue({
             })
 
         },
-        flash: function() {},
+        flash: function() {
+             swal(
+                    '( ͡° ͜ʖ ͡°)',
+                    'Successfully flashed lights!',
+                    'success'
+                )
+        },
         cancelTrip: function() {
             swal({
                 title: 'Are you sure?',
@@ -114,8 +120,7 @@ var vm = new Vue({
                 )
 
             } else {
-                this.$http.post('/startHVAC').then(function(data) {
-                })
+                this.$http.post('/startHVAC').then(function(data) {})
                 swal(
                     'Preparing for Florida!',
                     'Successfully turned on biohazard mode!',
@@ -147,7 +152,6 @@ var vm = new Vue({
                 this.text = 'log in'
             }
         },
-
         startCurrentSpeed: function() {
             var self = this;
             setTimeout(function() {
