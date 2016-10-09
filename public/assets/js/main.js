@@ -136,8 +136,10 @@ var vm = new Vue({
                 self.$http.get('/getTemp').then(function(data) {
                     obj = JSON.parse(JSON.minify(data.body)).response;
                     console.log(obj)
+                    self.inCarTemp = obj.inside_temp;
+                    self.outCarTemp = obj.outside_temp;
                 })
-                self.startCurrentSpeed()
+                self.startInCarTemp()
             }, 3000)
 
         }
