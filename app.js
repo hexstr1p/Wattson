@@ -102,14 +102,15 @@ var getDriveAndLocation = function(vehicleID) {
       'Authorization': 'Bearer {access_token}'
     }
   },
-  function(error, response, body) {
+  thing = function(error, response, body) {
     if (error) return;
     console.log('Status:', response.statusCode);
     console.log('Headers:', JSON.stringify(response.headers));
     console.log('Response:', body);
-    thing = body;
+    return body;
   });
-  return thing;
+  console.log(thing.body);
+  return thing.body;
 };
 // fire controllers
 wattsonController(app);
