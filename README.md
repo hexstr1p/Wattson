@@ -17,4 +17,4 @@ At anytime you can chose to end the ride of a client; ending the trip and only c
 
 This was a submission for MHacks8.
 
-It can be tested out [here](45.33.86.221:3000).
+It can be tested out [here](http://45.33.86.221:3000).
