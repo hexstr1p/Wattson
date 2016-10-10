@@ -13,4 +13,8 @@ You will also have control over your Tesla's door locks, atmosphere functions, l
 
 At anytime you can chose to end the ride of a client; ending the trip and only collecting payment for the distance thus traveled.
 
+-----
+
 This was a submission for MHacks8.
+
+It can be tested out [here](45.33.86.221:3000).
